@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.table.facilities;
+package com.example.swing.sophiademo.facilities;
 
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;

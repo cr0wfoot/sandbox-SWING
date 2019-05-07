@@ -1,6 +1,6 @@
-package com.table;
+package com.example.swing.sophiademo;
 
-import com.table.facilities.FacilitiesTableModel;
+import com.example.swing.sophiademo.facilities.FacilitiesTableModel;
 
 import javax.swing.*;
 import java.awt.*;

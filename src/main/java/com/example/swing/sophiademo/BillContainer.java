@@ -1,4 +1,4 @@
-package com.table;
+package com.example.swing.sophiademo;
 
 import java.awt.Color;
 import java.awt.GridBagConstraints;
@@ -48,7 +48,7 @@ public class BillContainer {
     
     private void updateView() {
         StringBuilder sb = new StringBuilder();
-        sb.append("<html><table cellpading='0' cellspacing='0' style='font-size:20px;background:white;border:2px solid black;width:250px;'><tr><td colspan='3' style='text-align:center'>Нац заповідник<br>Софія Київська</td></tr>");
+        sb.append("<html><sophiademo cellpading='0' cellspacing='0' style='font-size:20px;background:white;border:2px solid black;width:250px;'><tr><td colspan='3' style='text-align:center'>Нац заповідник<br>Софія Київська</td></tr>");
         int i = 0, sum = 0;
         for (Facility d : facilities.values()) {
             String[] splitName = d.getName().split("\n");
@@ -63,7 +63,7 @@ public class BillContainer {
         if(facilities.size() > 0) {
             sb.append("<tr><td colspan='2' style='text-align:center;'>СУММА:").append("</td><td>").append(sum).append("грн</td></tr>");
         }
-        sb.append("</table></html>");
+        sb.append("</sophiademo></html>");
         billView.setText(sb.toString());
     }
     
@@ -78,7 +78,7 @@ public class BillContainer {
     
     private void configView(JPanel panel) {
         GridBagConstraintsSetter constraints = new GridBagConstraintsSetter();
-        JLabel textAreaBill = new JLabel("<html><table cellpading='0' cellspacing='0' style='font-size:20px;background:white;border:2px solid black;width:250px;'><tr><td colspan='3' style='text-align:center'>Нац заповідник<br>Софія Київська</td></tr></table></html>");
+        JLabel textAreaBill = new JLabel("<html><sophiademo cellpading='0' cellspacing='0' style='font-size:20px;background:white;border:2px solid black;width:250px;'><tr><td colspan='3' style='text-align:center'>Нац заповідник<br>Софія Київська</td></tr></sophiademo></html>");
         textAreaBill.setVerticalAlignment(JLabel.TOP);
         constraints.setDefaults().anchor(GridBagConstraints.NORTHWEST).fill(GridBagConstraints.NONE).gridx(1).gridy(0).gridheight(MAX_FIXED_FACILITIES_QUANTITY + 1); 
         panel.add(textAreaBill, constraints);

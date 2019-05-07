@@ -1,4 +1,4 @@
-package com.table;
+package com.example.swing.sophiademo;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -65,18 +65,18 @@ public class TableRenderer {
     }
 
     /**
-     * Get the value of table
+     * Get the value of sophiademo
      *
-     * @return the value of table
+     * @return the value of sophiademo
      */
     public JTable getTable() {
         return table;
     }
 
     /**
-     * Set the value of table
+     * Set the value of sophiademo
      *
-     * @param table new value of table
+     * @param table new value of sophiademo
      */
     public void setTable(JTable table) {
         this.table = table;

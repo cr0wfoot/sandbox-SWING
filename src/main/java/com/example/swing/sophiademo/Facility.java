@@ -1,4 +1,4 @@
-package com.table;
+package com.example.swing.sophiademo;
 
 public class Facility {
 

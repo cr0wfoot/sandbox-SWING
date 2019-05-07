@@ -1,5 +1,4 @@
-package com.ticketview;
-
+package com.example.swing;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -8,21 +7,21 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
 import java.awt.*;
 
-public class Run {
+public class TableWithPictureExample {
 
     //Массив содержащий заголоки таблицы
-    Object[] headers = { "", "Name", "Surname", "Telephone", "" };
+    Object[] headers = {"", "Name", "Surname", "Telephone", ""};
 
     //Массив содержащий информацию для таблицы
     Object[][] data = {
-            { "" , "", "Naz Zapov Sophia Kyiv", "", "" },
-            { "" , "2", "Black", "2221111", "" },
-            { "" , "3", "White", "3334444", "" },
-            { "" , "12", "Black", "2235111", "" },
-            { "" , "11", "Black", "2221511", "" },
-            { "" , "10", "Black", "2221111", "" },
-            { "" , "7", "Red", "2121111", "" },
-            { "" , "8", "Green", "2321111", "" },
+            {"", "", "Naz Zapov Sophia Kyiv", "", ""},
+            {"", "2", "Black", "2221111", ""},
+            {"", "3", "White", "3334444", ""},
+            {"", "12", "Black", "2235111", ""},
+            {"", "11", "Black", "2221511", ""},
+            {"", "10", "Black", "2221111", ""},
+            {"", "7", "Red", "2121111", ""},
+            {"", "8", "Green", "2321111", ""},
     };
 
     static JPanel p = new JPanel();
@@ -32,7 +31,7 @@ public class Run {
 
     static JLabel lab;
 
-    Run() {
+    TableWithPictureExample() {
         //Создаем новый контейнер JFrame
         p.setLayout(new BoxLayout(p, BoxLayout.Y_AXIS));
         JFrame jfrm = new JFrame("JTableExample");
@@ -55,9 +54,9 @@ public class Run {
         columnModel.getColumn(4).setPreferredWidth(10);
 
         jTabPeople.setShowGrid(false);
-        jTabPeople.setIntercellSpacing(new Dimension(0,0));
+        jTabPeople.setIntercellSpacing(new Dimension(0, 0));
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-        centerRenderer.setHorizontalAlignment( SwingConstants.CENTER );
+        centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
         DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
         rightRenderer.setVerticalAlignment(SwingConstants.TOP);
         //jTabPeople.getColumnModel().getColumn(1).setCellRenderer(rightRenderer);
@@ -69,7 +68,7 @@ public class Run {
         p.setBorder(BorderFactory.createLineBorder(Color.black));
         ImageIcon water = new ImageIcon("water.gif");
         JButton b = new JButton(water);
-        b.setPreferredSize(new Dimension(30,30));
+        b.setPreferredSize(new Dimension(30, 30));
         b.setBorderPainted(false);
         //b.setIcon(water);
         jfrm.getContentPane().add(p);
@@ -86,15 +85,10 @@ public class Run {
     //Функция main, запускающаяся при старте приложения
     public static void main(String[] args) {
         //оздаем фрейм в потоке обработки событий
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new Run();
-                jTabPeople.setValueAt("new", 2, 0);
-            }
+        SwingUtilities.invokeLater(() -> {
+            new TableWithPictureExample();
+            jTabPeople.setValueAt("new", 2, 0);
         });
-
-
     }
 
     public static class CustomRenderer implements TableCellRenderer {
@@ -104,8 +98,7 @@ public class Run {
         Border b2;
         Border b4;
 
-
-        public CustomRenderer(TableCellRenderer r, Color top, Color left,Color bottom, Color right){
+        public CustomRenderer(TableCellRenderer r, Color top, Color left, Color bottom, Color right) {
             render = r;
 
             //It looks funky to have a different color on each side - but this is what you asked
@@ -113,37 +106,33 @@ public class Run {
             //b = BorderFactory.createCompoundBorder();
             //b1 = BorderFactory.createCompoundBorder();
 
-            b1 = BorderFactory.createCompoundBorder(b, BorderFactory.createMatteBorder(2,0,0,0,Color.black));
-            b4 = BorderFactory.createCompoundBorder(b, BorderFactory.createMatteBorder(0,2,0,0,Color.black));
-            b2 = BorderFactory.createCompoundBorder(b, BorderFactory.createMatteBorder(0,0,2,0,Color.black));
-            b = BorderFactory.createCompoundBorder(b, BorderFactory.createMatteBorder(0,0,0,2,Color.black));
+            b1 = BorderFactory.createCompoundBorder(b, BorderFactory.createMatteBorder(2, 0, 0, 0, Color.black));
+            b4 = BorderFactory.createCompoundBorder(b, BorderFactory.createMatteBorder(0, 2, 0, 0, Color.black));
+            b2 = BorderFactory.createCompoundBorder(b, BorderFactory.createMatteBorder(0, 0, 2, 0, Color.black));
+            b = BorderFactory.createCompoundBorder(b, BorderFactory.createMatteBorder(0, 0, 0, 2, Color.black));
         }
 
         @Override
         public Component getTableCellRendererComponent(JTable table,
                                                        Object value, boolean isSelected, boolean hasFocus, int row,
                                                        int column) {
-
-            JComponent result = (JComponent)render.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+            JComponent result = (JComponent) render.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
             result.setBackground(Color.white);
 
-            if(column != 0 && row == 0) {
+            if (column != 0 && row == 0) {
                 result.setBorder(b1);
             }
-
-            if(column != 0 && row == 7) {
+            if (column != 0 && row == 7) {
                 result.setBorder(b2);
             }
-            if(column == 0) {
+            if (column == 0) {
                 result.setBorder(b);
                 result.setBackground(Color.lightGray);
             }
-            if(column == 4) {
+            if (column == 4) {
                 result.setBorder(b4);
             }
-
             return result;
         }
-
     }
 }

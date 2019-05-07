@@ -1,8 +1,8 @@
-package com.table.facilities;
+package com.example.swing.sophiademo.facilities;
 
-import com.table.BillContainer;
-import com.table.Facility;
-import com.table.TableRenderer;
+import com.example.swing.sophiademo.BillContainer;
+import com.example.swing.sophiademo.Facility;
+import com.example.swing.sophiademo.TableRenderer;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.util.List;

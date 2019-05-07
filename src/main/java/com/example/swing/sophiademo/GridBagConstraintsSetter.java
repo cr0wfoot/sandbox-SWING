@@ -1,4 +1,4 @@
-package com.table;
+package com.example.swing.sophiademo;
 
 import java.awt.GridBagConstraints;
 import java.awt.Insets;

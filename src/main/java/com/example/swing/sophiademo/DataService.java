@@ -1,4 +1,4 @@
-package com.table;
+package com.example.swing.sophiademo;
 
 import java.util.ArrayList;
 import java.util.List;
